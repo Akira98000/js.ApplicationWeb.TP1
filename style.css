@@ -1,32 +1,39 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
 
 body {
     font-family: "Poppins", serif;
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-    font-size:15px;
     background: #000000;
 }
 h1{
+    font-family: "Lora", serif;
     color:rgb(255, 255, 255);
     font-size: 25px;
     font-weight: bold;
 }
-li{
+li {
     list-style: none;
-    cursor:pointer;
-    transition: 0.7s ease-in-out;
+    cursor: pointer;
 }
 
-li:hover{
-    text-decoration: underline;
-    color:aliceblue;
+li a {
+    font-family: "Lora", serif;
+    text-decoration: none;
+    color: inherit; 
 }
+
+li:hover a{
+    text-decoration: underline 1px solid rgb(255, 255, 255);
+    transition: 0.4s ease-in-out;
+}
+
 ul{
     display: flex;
-    gap:30px;
-    font-size: 16px;
+    gap:20px;
+    align-items:center;
 }
 .navbar{
     padding:20px;
@@ -49,7 +56,7 @@ ul{
     background: rgb(255, 255, 255);
     color: #2b2b2b;
     border: 1px solid rgb(255, 255, 255);
-    transition: 0.7s ease-in-out;
+    transition: 0.4s ease-in-out;
 }
 
 
@@ -61,8 +68,8 @@ ul{
     height:30rem;
 }
 
-.navbar li{
-    color:rgb(0, 0, 0);
+.navbar li a{
+    color:rgb(255, 255, 255);
     font-size: 20px;
 }
 
@@ -79,8 +86,13 @@ ul{
 
 .gauche h1{
     color:rgb(255, 255, 255);
-    font-size: 30px;
+    font-size: 40px;
     font-weight: bold;
+    font-family: "Lora", serif;
+}
+
+h1 span{
+    font-size: 20px;    
 }
 
 .gauche p{
@@ -92,11 +104,48 @@ ul{
     text-decoration: none;
     color: white;
 }
-.droite{
+.droite {
+    width: 50%;
+    padding: 30px 30px;
+    margin: 50px auto; 
     display: flex;
-    width: 50%;
-    padding: 20px;
+    flex-direction: column;
+    align-items: center; 
 }
-img{
+
+.haut{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.bas {
+    width: 75%;
+    gap: 20px;
+    text-align: center; 
+}
+
+.bas p {
+    color: #ffffff;
+    font-size: 10px;
+}
+
+.cubic{
+    background: #ffffff;
+    border : 2px solid #ffffff;
+    border-radius: 10px;
+    padding: 30px 30px;
+}
+
+img {
     width: 50%;
+    margin: 0 auto; 
+}
+
+.gauche-button{
+    padding-top:20px;
+}
+
+.fa-arrow-down{
+    margin-left: 10px;
 }
