@@ -6,8 +6,8 @@ body {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-    background: hsl(0, 0%, 0%);
     overflow-x: hidden;
+    background: hsl(0, 0%, 0%);
 }
 
 html{

@@ -3,19 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Inscription</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <form action="login.html" method="post">
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" name="email" id="email">
+    <div class="container">
+        <div class="image-section">
+            <a href="/index.html" class="back-button">Retour sur le site <i class="fa-solid fa-arrow-right"></i></a>
+            <img src="https://www.iculture.nl/wp-content/uploads/2024/09/airpods-max-2024-blauw.webp" alt="Image de connexion">
         </div>
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" name="password" id="password">
+        <div class="form-section">
+            <div class="form-header">
+                <h1>Adhérer à &copy;Akirrally</h1>
+                <h5>Déjà un compte ? <a href="#" id="switchToLogin">Connectez-vous</a></h5>
+            </div>
+            <form id="registerForm">
+                <div class="form-group name-row">
+                    <div>
+                        <input type="text" name="firstName" id="firstName" placeholder="Prénom" required>
+                    </div>
+                    <div>
+                        <input type="text" name="lastName" id="lastName" placeholder="Nom" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" id="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password" id="password" placeholder="Mot de passe" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirmer le mot de passe" required>
+                </div>
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" name="terms" id="terms" required>
+                    <label for="terms">J'accepte les <a href="#">termes et conditions</a> du site web</label>
+                </div>
+                <button type="submit">Créer un compte</button>
+            </form>
         </div>
-        <button type="submit">Login</button>
-    </form>
+    </div>
+    <script src="login.js"></script>
 </body>
 </html>

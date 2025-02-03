@@ -1,0 +1,401 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+body {
+    font-family: "Poppins", serif;
+    height: 100vh;
+    background-color: #000000;
+}
+
+h1{
+    font-family: "Lora", serif;
+    color:rgb(255, 255, 255);
+    font-weight: bold;
+    font-size: 3rem;
+}
+
+.container {
+    display: flex;
+    padding: 2rem;
+    height: 100%;
+    margin: 0 auto;
+    gap: 4rem;
+}
+
+.image-section {
+    flex: 1;
+    overflow: hidden;
+    border-radius: 1rem;
+    position: relative;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.image-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.7;
+}
+
+.form-section {
+    flex: 0.8;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.form-header {
+    margin-bottom: 2rem;
+    width: 75%;
+    max-width: 450px;
+}
+
+.form-header h1 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    text-align: left;
+    transition: all 0.5s ease-in-out;
+}
+
+.form-header h5 {
+    color: #9ca3af;
+    font-weight: normal;
+}
+
+.form-header a {
+    color: #b190bd;
+    text-decoration: none;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group.name-row {
+    display: flex;
+    gap: 1rem;
+}
+
+.form-group.name-row > div {
+    flex: 1;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #9ca3af;
+}
+
+input {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: #2a2a35;
+    border: 1px solid #b190bd00;
+    border-radius: 0.5rem;
+    color: white;
+    font-size: 1rem;
+    transition: all 0.3s ease-in-out;
+}
+
+input:focus {
+    outline: none;
+    border-color: #b190bd;
+}
+
+input:hover {
+    background-color: #32323e;
+}
+
+/* Ajoutez ces styles pour les animations */
+.form-container {
+    position: relative;
+    width: 100%;
+}
+
+#registerForm {
+    width: 75%;
+    max-width: 450px;
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 0.5s ease-in-out;
+}
+
+#registerForm.fade-out {
+    opacity: 0;
+    transform: translateX(-50px);
+}
+
+#registerForm.fade-in {
+    opacity: 1;
+    transform: translateX(0);
+    animation: slideIn 0.5s ease-in-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Animation pour le titre */
+.form-header h1.fade {
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+button {
+    width: 100%;
+    padding: 1rem;
+    background-color: #b190bd;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 1rem;
+    transition: all 0.3s ease-in-out;
+    transform: scale(1);
+}
+
+button:hover {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    transform: scale(1.02);
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: 1.2rem;
+    height: 1.2rem;
+    margin-right: 0.5rem;
+    background-color: #000000;
+    accent-color: #b190bd;
+}
+
+.checkbox-group label {
+    margin-bottom: 0;
+    font-size: 0.9rem;
+    color: #9ca3af;
+}
+
+.checkbox-group a {
+    color: #b190bd;
+    text-decoration: none;
+}
+
+.checkbox-group a:hover {
+    text-decoration: underline;
+}
+
+/* Ajout des boutons de connexion sociale */
+.social-login {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.social-login p {
+    color: #9ca3af;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.social-login p::before,
+.social-login p::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 45%;
+    height: 1px;
+    background-color: #3f3f4b;
+}
+
+.social-login p::before {
+    left: 0;
+}
+
+.social-login p::after {
+    right: 0;
+}
+
+.social-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-button {
+    flex: 1;
+    padding: 0.8rem;
+    border: 1px solid #3f3f4b;
+    border-radius: 0.5rem;
+    background-color: #2a2a35;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.social-button:hover {
+    background-color: #33333f;
+}
+
+.back-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 10;
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    background-color: #ffffff33;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 1rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.back-button:hover {
+    background-color: rgb(0, 0, 0);
+    transform: translateX(5px);
+}
+
+.fa-arrow-right{
+    margin-left: 0.3rem;
+}
+
+/* Animation pour les liens */
+a {
+    transition: all 0.2s ease-in-out;
+}
+
+a:hover {
+    opacity: 0.8;
+}
+
+/* Ajoutez ces media queries à la fin du fichier */
+
+@media screen and (max-width: 1024px) {
+    .container {
+        gap: 2rem;
+        padding: 1rem;
+    }
+
+    .form-section {
+        flex: 1;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .image-section {
+        flex: 0.3;
+    }
+
+    .form-section {
+        flex: 0.7;
+    }
+
+    #registerForm, 
+    .form-header {
+        width: 90%;
+    }
+
+    .back-button {
+        top: 0.5rem;
+        right: 0.5rem;
+        padding: 0.4rem 1rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        padding: 0.5rem;
+    }
+
+    .form-group.name-row {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .form-header h5 {
+        font-size: 0.9rem;
+    }
+
+    input {
+        padding: 0.7rem;
+    }
+
+    button {
+        padding: 0.8rem;
+    }
+
+    .checkbox-group label {
+        font-size: 0.8rem;
+    }
+
+    #registerForm, 
+    .form-header {
+        width: 95%;
+    }
+}
+
+@media screen and (max-height: 700px) {
+    .container {
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .image-section {
+        display: none;
+    }
+
+    .form-section {
+        padding: 2rem 0;
+    }
+}
