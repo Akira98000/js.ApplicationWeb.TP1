@@ -37,11 +37,13 @@ ul{
     gap:30px;
     align-items:center;
 }
+
 .navbar{
     padding:20px;
     display:flex;
     justify-content: space-around;
-
+    align-items: center;
+    position: relative;
 }
 .navbar a{
     text-decoration: none;
@@ -142,7 +144,6 @@ img {
     margin: 0 auto; 
 }
 
-
 .gauche-button{
     padding-top:20px;
 }
@@ -151,7 +152,6 @@ img {
     margin-left: 10px;
 }
 
-/* PRODUITS */
 
 .produits{
     display:flex;
@@ -192,9 +192,6 @@ img {
     margin-top: 10px;
     padding: 0;
 }
-
-/* SECTION 2 */
-
 #section2{
     background: linear-gradient(#000000, #5b4264);
     height:30rem;
@@ -218,8 +215,6 @@ img {
     font-size: 35px;
     font-weight: bold;
 }
-
-/* SECTION 3 */
 
 #section3 {
     background: linear-gradient(#5b4264, #000000);
@@ -303,13 +298,24 @@ section3-gauche .fa-arrow-down{
     animation: fleche 3s ease-in-out infinite;
 }
 
+.hamburger {
+    display: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.hamburger i {
+    font-size: 24px;
+    color: white;
+    transition: 0.4s;
+}
 
 @keyframes casque {
     0% {
         transform: translateY(0);
     }
     50% {
-        transform: translateY(-40px);
+        transform: translateY(-25px);
     }
     100% {
         transform: translateY(0);
@@ -414,31 +420,83 @@ section3-gauche .fa-arrow-down{
         margin: 0 auto;
     }
 
-    footer{
-        height: auto;
+    .footer-content {
         flex-direction: column;
-        align-items: center;
         text-align: center;
     }
 
-    footer .left,
-    footer .right {
-        width: 70%;
+    .footer-left, .footer-center, .footer-right {
+        margin: 20px 0;
     }
 
-    footer .right{
-        margin-top: 50px;
+    .footer-right a {
+        justify-content: center;
     }
 
-    footer .right img{
+    .social-links {
+        margin-bottom: 20px;
+    }
+
+    .navbar ul{
+        display: none;
+    }
+
+    .hamburger {
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #ffffff;
+        display: block;
+        z-index: 1000;
+    }
+
+    .nav-links {
+        position: fixed;
+        right: -100%;
+        top: 0;
+        height: 100%;
         width: 100%;
+        background-color: #000000;
+        flex-direction: column;
+        padding: 80px 0;
+        transition: 0.4s ease-in-out;
+        z-index: 999;
+        display: flex !important;
     }
-    
 
+    .nav-links.active {
+        right: 0;
+    }
 
+    .nav-links li {
+        text-align: center;
+        margin: 5px 0;
+    }
+
+    .hamburger.active i {
+        transform: rotate(90deg);
+    }
+
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #000000;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        z-index: 1000;
+        justify-content: center;
+    }
+
+    /* Ajout d'un padding-top au header pour compenser la navbar fixe */
+    .header {
+        padding-top: 70px;
+    }
 }
 
-/* FOOTER */
+
 footer {
     background: #000000;
     padding: 50px 0 20px;
@@ -533,23 +591,4 @@ footer {
 
 .footer-bottom p {
     font-size: 14px;
-}
-
-@media screen and (max-width: 768px) {
-    .footer-content {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .footer-left, .footer-center, .footer-right {
-        margin: 20px 0;
-    }
-
-    .footer-right p {
-        justify-content: center;
-    }
-
-    .social-links {
-        margin-bottom: 20px;
-    }
 }
