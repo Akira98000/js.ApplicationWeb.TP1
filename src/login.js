@@ -1,18 +1,14 @@
-// État initial
 let isLoginForm = false;
 
-// Éléments du DOM
 const formHeader = document.querySelector('.form-header h1');
 const switchButton = document.getElementById('switchToLogin');
 const form = document.getElementById('registerForm');
 const switchText = document.querySelector('.form-header h5');
 
 function toggleForm() {
-    // Ajout de l'animation de sortie
     form.classList.add('fade-out');
     formHeader.classList.add('fade');
 
-    // Attendre la fin de l'animation de sortie
     setTimeout(() => {
         isLoginForm = !isLoginForm;
         
@@ -61,16 +57,13 @@ function toggleForm() {
             form.onsubmit = handleRegister;
         }
 
-        // Ajout de l'animation d'entrée
         form.classList.remove('fade-out');
         form.classList.add('fade-in');
         formHeader.classList.remove('fade');
 
-        // Mise à jour du gestionnaire d'événements pour le bouton de changement
         document.getElementById(isLoginForm ? 'switchToRegister' : 'switchToLogin')
             .addEventListener('click', toggleForm);
 
-        // Retirer la classe fade-in après l'animation
         setTimeout(() => {
             form.classList.remove('fade-in');
         }, 500);
@@ -85,10 +78,21 @@ function handleLogin(e) {
     const user = users.find(u => u.email === email && u.password === password);
     
     if (user) {
-        alert('Connexion réussie !');
+        localStorage.setItem('currentUser', JSON.stringify(user));
         this.reset();
+        window.location.href = '/index.html';
     } else {
-        alert('Email ou mot de passe incorrect !');
+        form.innerHTML = `
+            <div class="form-group">
+                <p class="error-message">Email ou mot de passe incorrect !</p>
+                <input type="email" name="email" id="email" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+                <input type="password" name="password" id="password" placeholder="Mot de passe" required>
+            </div>
+            <button type="submit">Se connecter</button>
+        `;
+        form.onsubmit = handleLogin;
     }
 }
 
@@ -101,12 +105,18 @@ function handleRegister(e) {
     const confirmPassword = document.getElementById('confirmPassword').value;
     const terms = document.getElementById('terms').checked;
 
+    const existingErrors = document.querySelectorAll('.error-message');
+    existingErrors.forEach(error => error.remove());
+
     if (!terms) {
-        alert('Vous devez accepter les termes et conditions !');
+        const termsGroup = document.querySelector('.checkbox-group');
+        termsGroup.insertAdjacentHTML('beforebegin', '<p class="error-message">Vous devez accepter les termes et conditions !</p>');
         return;
     }
+
     if (password !== confirmPassword) {
-        alert('Les mots de passe ne correspondent pas !');
+        const passwordInput = document.getElementById('password');
+        passwordInput.insertAdjacentHTML('beforebegin', '<p class="error-message">Les mots de passe ne correspondent pas !</p>');
         return;
     }
 
@@ -119,14 +129,21 @@ function handleRegister(e) {
 
     let users = JSON.parse(localStorage.getItem('users')) || [];
     if (users.some(u => u.email === email)) {
-        alert('Cet email est déjà utilisé !');
+        const emailInput = document.getElementById('email');
+        emailInput.insertAdjacentHTML('beforebegin', '<p class="error-message">Cet email est déjà utilisé !</p>');
         return;
     }
 
     users.push(user);
     localStorage.setItem('users', JSON.stringify(users));
-    alert('Inscription réussie !');
-    this.reset();
+    
+    form.innerHTML = `
+        <p style="color: green; text-align: center;">Inscription réussie ! Redirection...</p>
+    `;
+    
+    setTimeout(() => {
+        toggleForm(); 
+    }, 2000);
 }
 
 document.getElementById('switchToLogin').addEventListener('click', toggleForm);
